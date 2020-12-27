@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+    .row
+        .col-sm-8
+            h1=title
+        .col-sm-4
+            a(href="/orders/add", class="btn btn-info my-10 float-right") Add New Order
+    table.table
+        thead
+            tr
+                th(style="text-align:center") Sreial No
+                th(style="text-align:center") Address 
+                th(style="text-align:center") Quantity
+                th(style="text-align:center") Payment
+                th(style="text-align:center") Actions
+        tbody
+            each order in orders
+                tr
+                    td(style="text-align:center")=order.serial_no
+                    td(style="text-align:center")=order.address
+                    td(style="text-align:center")=order.quantity
+                    td(style="text-align:center")=order.payment
+                    td(style="text-align:center")
+                        a(href="/orders/delete/"+order._id, class="btn faas btn-danger") <i class="fas fa-trash-alt"></i>
